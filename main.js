@@ -322,7 +322,7 @@ function appendMessage(data) {
     let adminHeader = '';
     if (data.isAdmin) {
         const avatar = data.adminAvatar ? data.adminAvatar : './img/bsps.png';
-        const name = data.adminName ? data.adminName : 'Admin Bacardi';
+        const name = data.adminName ? data.adminName : 'Admin BSPS';
         adminHeader = `
             <div class="admin-header">
                 <img src="${avatar}" alt="Admin Logo" class="admin-logo">
@@ -565,12 +565,12 @@ window.onclick = function(event) {
 
 socket.on('connect', () => {
     console.log('Connected to server');
-    showNotification('Welcome Bacardi Support', 'success');
+    showNotification('Welcome BSPS Support', 'success');
 });
 
 socket.on('connect_error', (error) => {
     console.error('Connection error:', error);
-    showNotification('Bacardi Support Maintenance', 'error');
+    showNotification('BSPS Support Maintenance', 'error');
 });
 
 const chatStyles = `
