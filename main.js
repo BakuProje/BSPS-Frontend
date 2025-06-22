@@ -1,4 +1,4 @@
-const API_URL = 'https://bacardi-report-api-b8957a8385db.herokuapp.com';
+const API_URL = 'https://bsps-report-c039a6871d74.herokuapp.com';
 const socket = io(API_URL);
 let currentReportId = null; 
 let isTyping = false;
