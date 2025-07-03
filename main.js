@@ -928,3 +928,41 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     type();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bgVideo = document.getElementById('bg-video');
+    const videoSources = [
+        './img/video.mp4',
+        './img/video2.mp4'
+    ];
+    let currentVideo = 0;
+
+    // Fungsi untuk fade out/in
+    function fadeOutIn(callback) {
+        bgVideo.style.transition = 'opacity 0.7s';
+        bgVideo.style.opacity = 0;
+        setTimeout(() => {
+            callback();
+            bgVideo.style.opacity = 1;
+        }, 700);
+    }
+
+    // Set video source dan play
+    function setVideo(index) {
+        bgVideo.src = videoSources[index];
+        bgVideo.load();
+        bgVideo.play();
+    }
+    setVideo(currentVideo);
+    bgVideo.onended = function() {
+        currentVideo = (currentVideo + 1) % videoSources.length;
+        fadeOutIn(() => setVideo(currentVideo));
+    };
+    function resizeVideo() {
+        bgVideo.style.width = '100vw';
+        bgVideo.style.height = '100vh';
+        bgVideo.style.objectFit = 'cover';
+    }
+    window.addEventListener('resize', resizeVideo);
+    resizeVideo();
+});
