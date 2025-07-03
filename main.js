@@ -114,7 +114,7 @@ function showChatInterface() {
         <div class="chat-container">
             <div class="chat-header">
                 <div class="chat-header-info">
-                    <img src="./img/bsps.png" alt="Bacardi Logo" class="chat-header-logo">
+                    <img src="./img/icon.png" alt="Bacardi Logo" class="chat-header-logo">
                     <h2>Chat dengan Admin</h2>
                 </div>
                 <span class="close" onclick="closeReportForm()">&times;</span>
@@ -321,7 +321,7 @@ function appendMessage(data) {
 
     let adminHeader = '';
     if (data.isAdmin) {
-        const avatar = data.adminAvatar ? data.adminAvatar : './img/bsps.png';
+        const avatar = data.adminAvatar ? data.adminAvatar : './img/icon.png';
         const name = data.adminName ? data.adminName : 'Admin BSPS';
         adminHeader = `
             <div class="admin-header">
@@ -699,7 +699,7 @@ function renderReportForm() {
         <div class="report-form-modern">
             <div class="chat-header">
                 <div class="chat-header-info">
-                    <img src="./img/bsps.png" alt="Bacardi Logo" class="chat-header-logo">
+                    <img src="./img/icon.png" alt="Bacardi Logo" class="chat-header-logo">
                     <h2>Player Report</h2>
                 </div>
                 <span class="close" onclick="closeReportForm()">&times;</span>
@@ -736,3 +736,70 @@ function renderReportForm() {
         </div>
     `;
 }
+
+function downloadBSPSHost(e) {
+    e.preventDefault();
+    const content = `34.174.139.87 growtopia1.com
+34.174.139.87 growtopia2.com
+34.174.139.87 www.growtopia1.com
+34.174.139.87 www.growtopia2.com
+34.174.139.87 RvLnd.here
+`;
+    const blob = new Blob([content], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'BSPS.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showNotification('Virtual Host BSPS berhasil di-download', 'success');
+}
+
+function copyPowerTunnel() {
+    const text = 'https://gtpshost.com/XovanHost.txt';
+    navigator.clipboard.writeText(text).then(function() {
+        showNotification('Power tunnel di salin', 'success');
+    }, function() {
+        showNotification('Gagal menyalin power tunnel', 'error');
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const bgVideo = document.getElementById('bg-video');
+    if (!bgVideo) return;
+    const sources = [
+        './img/video.mp4',
+        './img/video2.mp4'
+    ];
+    let current = 0;
+
+    // Tambahkan style transition ke video
+    bgVideo.style.transition = 'opacity 0.8s';
+    bgVideo.style.opacity = 1;
+
+    function setVideo(idx) {
+        // Fade out
+        bgVideo.style.opacity = 0;
+        setTimeout(() => {
+            while (bgVideo.firstChild) bgVideo.removeChild(bgVideo.firstChild);
+            const source = document.createElement('source');
+            source.src = sources[idx];
+            source.type = 'video/mp4';
+            bgVideo.appendChild(source);
+            bgVideo.load();
+            bgVideo.play();
+            // Fade in
+            setTimeout(() => {
+                bgVideo.style.opacity = 1;
+            }, 100);
+        }, 700);
+    }
+
+    bgVideo.addEventListener('ended', function() {
+        current = (current + 1) % sources.length;
+        setVideo(current);
+    });
+
+    // Inisialisasi video pertama
+    setVideo(0);
+});
