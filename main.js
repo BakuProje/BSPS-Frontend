@@ -4,6 +4,7 @@ let currentReportId = null;
 let isTyping = false;
 let typingTimeout;
 let selectedImage = null; 
+let isQRShowing = false;
 
 function formatDateTime(dateString) {
     const hari = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
@@ -756,7 +757,7 @@ function downloadBSPSHost(e) {
 }
 
 function copyPowerTunnel() {
-    const text = 'https://gtpshost.com/XovanHost.txt';
+    const text = 'https://bspsreport.vercel.app/BSPS.txt';
     navigator.clipboard.writeText(text).then(function() {
         showNotification('Power tunnel di salin', 'success');
     }, function() {
@@ -766,40 +767,164 @@ function copyPowerTunnel() {
 
 document.addEventListener('DOMContentLoaded', function() {
     const bgVideo = document.getElementById('bg-video');
-    if (!bgVideo) return;
-    const sources = [
-        './img/video.mp4',
-        './img/video2.mp4'
-    ];
-    let current = 0;
+    const audioBtn = document.getElementById('audioToggleBtn');
+    const audioIcon = document.getElementById('audioIcon');
+    const audioLabel = document.querySelector('.audio-label');
 
-    // Tambahkan style transition ke video
-    bgVideo.style.transition = 'opacity 0.8s';
-    bgVideo.style.opacity = 1;
+    let isMuted = true; 
 
-    function setVideo(idx) {
-        // Fade out
-        bgVideo.style.opacity = 0;
-        setTimeout(() => {
-            while (bgVideo.firstChild) bgVideo.removeChild(bgVideo.firstChild);
-            const source = document.createElement('source');
-            source.src = sources[idx];
-            source.type = 'video/mp4';
-            bgVideo.appendChild(source);
-            bgVideo.load();
-            bgVideo.play();
-            // Fade in
-            setTimeout(() => {
-                bgVideo.style.opacity = 1;
-            }, 100);
-        }, 700);
+    function updateAudioUI() {
+        if (isMuted) {
+            audioIcon.textContent = '🔇';
+            audioLabel.textContent = 'Music: OFF';
+            audioBtn.classList.remove('active');
+        } else {
+            audioIcon.textContent = '🔊';
+            audioLabel.textContent = 'Music: ON';
+            audioBtn.classList.add('active');
+        }
     }
 
-    bgVideo.addEventListener('ended', function() {
-        current = (current + 1) % sources.length;
-        setVideo(current);
-    });
+    function toggleAudio() {
+        isMuted = !isMuted;
+        bgVideo.muted = isMuted;
+        updateAudioUI();
+        if (!isMuted) {
+            bgVideo.volume = 0.5;
+            bgVideo.play();
+        }
+    }
 
-    // Inisialisasi video pertama
-    setVideo(0);
+
+    updateAudioUI();
+
+
+    audioBtn.addEventListener('click', toggleAudio);
+
+    bgVideo.muted = true;
+});
+
+function formatDateTime(date) {
+    return date.toLocaleDateString('id-ID', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const whatsappSupport = document.querySelector('.contact-support');
+    if (whatsappSupport) {
+        const currentDate = new Date();
+        const formattedDate = formatDateTime(currentDate);
+        whatsappSupport.href = `https://api.whatsapp.com/send?phone=6281527641306&text=Welcome%20To%20BSPS%20Support%0A%0AGrowid%3A%0ATanggal%3A${encodeURIComponent(formattedDate)}`;
+    }
+});
+
+
+const tabs = document.querySelectorAll('.nav-tab');
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+
+        tabs.forEach(t => t.classList.remove('active'));
+
+        tab.classList.add('active');
+
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => content.classList.add('hidden'));
+
+        const targetTab = document.getElementById(`${tab.dataset.tab}Tab`);
+        targetTab.classList.remove('hidden');
+    });
+});
+
+
+function openDonasiModal() {
+    document.getElementById('donasiModal').style.display = 'block';
+}
+
+function closeDonasiModal() {
+    document.getElementById('donasiModal').style.display = 'none';
+}
+
+function showQRCode() {
+    document.getElementById('donasiModal').style.display = 'none';
+    document.getElementById('qrModal').style.display = 'block';
+}
+
+function closeQRModal() {
+    document.getElementById('qrModal').style.display = 'none';
+}
+
+function openReportModal() {
+    document.getElementById('reportModal').style.display = 'block';
+}
+
+function closeReportModal() {
+    document.getElementById('reportModal').style.display = 'none';
+}
+
+window.addEventListener('click', (event) => {
+    const modals = [
+        document.getElementById('donasiModal'),
+        document.getElementById('qrModal'),
+        document.getElementById('reportModal')
+    ];
+
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+
+function showQRinDonasiModal() {
+    document.getElementById('donasiOptions').style.display = 'none';
+    document.getElementById('qrSection').style.display = 'flex';
+    isQRShowing = true;
+}
+function showDonasiOptions() {
+    document.getElementById('qrSection').style.display = 'none';
+    document.getElementById('donasiOptions').style.display = 'flex';
+    isQRShowing = false;
+}
+document.getElementById('mainQrImage').onclick = function() {
+    document.getElementById('qrFullscreenOverlay').style.display = 'flex';
+};
+function closeQrFullscreen() {
+    document.getElementById('qrFullscreenOverlay').style.display = 'none';
+}
+
+document.getElementById('donasiCloseBtn').onclick = function() {
+    if (isQRShowing) {
+        showDonasiOptions();
+    } else {
+        closeDonasiModal();
+    }
+};
+
+window.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+        const preloader = document.getElementById('preloader');
+        if (preloader) {
+            preloader.style.opacity = 0;
+            setTimeout(() => preloader.style.display = 'none', 500);
+        }
+    }, 2700);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const text = "BSPS GROWTOPIA";
+    const el = document.getElementById('preloaderText');
+    let i = 0;
+    function type() {
+        if (i <= text.length) {
+            el.textContent = text.slice(0, i);
+            i++;
+            setTimeout(type, 70); 
+        } else {
+            el.classList.add('done');
+        }
+    }
+    type();
 });

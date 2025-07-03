@@ -102,9 +102,9 @@ body {
     background: rgba(255,255,255,0.18);
     border-radius: 20px;
     padding: 30px;
-    box-shadow: 0 8px 32px rgba(37, 99, 235, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px 0 #2563eb22;
+    border: 1.5px solid #2563eb33;
+    backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(16px);
 }
 
@@ -119,6 +119,12 @@ body {
     border-radius: 0;
     object-fit: contain;
     margin-bottom: 30px;
+    filter: drop-shadow(0 0 16px #21cbf3cc);
+    transition: filter 0.3s;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 32px #21cbf3);
 }
 
 .buttons-section {
@@ -137,18 +143,20 @@ body {
     gap: 18px;
     padding: 20px 32px;
     border-radius: var(--border-radius);
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.25);
+    border: 1.5px solid rgba(33, 150, 243, 0.18);
+    background: rgba(30, 41, 59, 0.45);
     color: #232c3b;
     font-size: 18px;
     text-decoration: none;
     text-align: left;
-    transition: var(--transition);
+    transition: background 0.25s, border 0.25s, box-shadow 0.25s, transform 0.18s;
     cursor: pointer;
     position: relative;
     overflow: hidden;
     min-height: 64px;
     box-sizing: border-box;
+    box-shadow: 0 2px 12px 0 rgba(33,150,243,0.08);
+    backdrop-filter: blur(8px);
 }
 
 .button-icon {
@@ -160,9 +168,12 @@ body {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(33, 150, 243, 0.10);
     padding: 6px;
     box-sizing: border-box;
+    border: 1.5px solid rgba(33, 150, 243, 0.18);
+    box-shadow: 0 2px 8px 0 rgba(33,150,243,0.08);
+    transition: background 0.2s, border 0.2s;
 }
 
 .button-icon img {
@@ -182,9 +193,11 @@ body {
 }
 
 .link-button:hover, .report-button:hover {
-    background: rgba(255,255,255,0.35);
-    color: #232c3b;
-    border-color: rgba(255,255,255,0.25);
+    background: rgba(33, 150, 243, 0.12);
+    border: 1.5px solid #21cbf3;
+    box-shadow: 0 4px 24px 0 #21cbf3;
+    color: #2563eb;
+    transform: translateY(-2px) scale(1.03);
 }
 
 .report-button {
@@ -1042,4 +1055,467 @@ body {
     .modal-content .close {
         display: block !important;
     }
+}
+
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 0 20px;
+}
+
+.nav-tab {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 10px 20px;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.nav-tab::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 3px;
+    transform: scaleX(0);
+    transition: var(--transition);
+}
+
+.nav-tab.active {
+    opacity: 1;
+}
+
+.nav-tab.active::after {
+    transform: scaleX(1);
+}
+
+.tab-content {
+    transition: var(--transition);
+}
+
+.tab-content.hidden {
+    display: none;
+}
+
+.donasi-options {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 0;
+}
+
+.donasi-button-modern {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 0 28px;
+    height: 52px;
+    min-width: 180px;
+    max-width: 240px;
+    background: linear-gradient(90deg, #2563eb 0%, #1d4ed8 100%);
+    color: #fff;
+    border: none;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 18px 0 rgba(37,99,235,0.10);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.donasi-button-modern:hover {
+    background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 100%);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 8px 32px 0 rgba(37,99,235,0.18);
+}
+
+.donasi-icon-modern {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: #fff;
+    padding: 3px;
+    object-fit: contain;
+    box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+}
+
+.button-text-modern {
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    color: #fff;
+    white-space: nowrap;
+}
+
+.qr-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: var(--border-radius);
+}
+
+.modal-content {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: var(--border-radius);
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--text-color);
+    opacity: 0.7;
+    transition: var(--transition);
+}
+
+.close:hover {
+    opacity: 1;
+}
+
+.donasi-icon {
+    width: 28px;
+    height: 28px;
+    display: inline-block;
+}
+
+
+#donasiModal .modal-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px;
+    height: 45vh;
+    max-width: 320px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 0 0 24px 0;
+}
+
+#donasiModal .donasi-options {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+
+.donasi-button-modern {
+    width: 90%;
+    max-width: 210px;
+    min-width: 140px;
+    height: 44px;
+    font-size: 1rem;
+    border-radius: 12px;
+    padding: 0 16px;
+    gap: 12px;
+    box-shadow: 0 2px 8px 0 rgba(37,99,235,0.08);
+}
+
+
+.donasi-icon-modern {
+    width: 26px;
+    height: 26px;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+
+#donasiModal .close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    font-size: 1.5rem;
+    color: #fff;
+    background: rgba(30,41,59,0.7);
+    border-radius: 50%;
+    padding: 2px 8px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+#donasiModal .close:hover, #donasiModal .close:active {
+    background: #2563eb;
+    color: #fff;
+    transform: scale(1.1) rotate(90deg);
+}
+
+
+@media (max-width: 480px) {
+    #donasiModal .modal-content {
+        min-height: 180px;
+        height: 50vh;
+        max-width: 96vw;
+        padding: 0 0 16px 0;
+    }
+    .donasi-button-modern {
+        height: 38px;
+        font-size: 0.95rem;
+        max-width: 96vw;
+    }
+    #donasiModal .close {
+        top: 8px;
+        right: 8px;
+        font-size: 1.2rem;
+        padding: 2px 6px;
+    }
+}
+
+.qr-image.qr-clickable {
+    width: 180px;
+    height: 180px;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px 0 rgba(37,99,235,0.10);
+    transition: transform 0.2s;
+}
+.qr-image.qr-clickable:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px 0 rgba(37,99,235,0.18);
+}
+#qrFullscreenOverlay img {
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+#qrFullscreenOverlay span {
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 0 16px;
+    transition: background 0.2s;
+}
+#qrFullscreenOverlay span:hover {
+    background: #2563eb;
+}
+
+.qr-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-image.qr-clickable {
+    width: 270px;
+    height: 270px;
+    max-width: 90vw;
+    max-height: 60vh;
+    border-radius: 18px;
+    box-shadow: 0 8px 32px 0 rgba(37,99,235,0.18);
+    transition: transform 0.2s;
+    object-fit: cover;
+    background: transparent !important;
+    margin-bottom: 8px;
+    border: none;
+}
+.qr-image.qr-clickable:hover {
+    transform: scale(1.07);
+    box-shadow: 0 12px 36px 0 rgba(37,99,235,0.22);
+}
+#qrFullscreenOverlay img {
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+#qrFullscreenOverlay span {
+    background: rgba(0,0,0,0.3);
+    border-radius: 50%;
+    padding: 0 16px;
+    transition: background 0.2s;
+}
+#qrFullscreenOverlay span:hover {
+    background: #2563eb;
+}
+
+.qr-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.qr-image.qr-clickable {
+    width: 220px;
+    height: 220px;
+    max-width: 90vw;
+    max-height: 60vh;
+    border-radius: 16px;
+    box-shadow: 0 4px 18px 0 rgba(37,99,235,0.10);
+    transition: transform 0.2s;
+    object-fit: contain;
+    background: #fff;
+}
+.qr-image.qr-clickable:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 32px 0 rgba(37,99,235,0.18);
+}
+
+#preloader {
+    position: fixed;
+    z-index: 99999;
+    top: 0; left: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background: #181f2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s;
+}
+.b-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+.b-svg {
+    display: block;
+    margin: 0 auto;
+}
+#bPath {
+    stroke-dasharray: 3200;
+    stroke-dashoffset: 3200;
+    animation: drawBPath 2.7s cubic-bezier(.77,0,.18,1) forwards;
+}
+@keyframes drawBPath {
+    to { stroke-dashoffset: 0; }
+}
+.b-text {
+    margin-top: 18px;
+    font-family: 'Poppins', monospace;
+    font-size: 1.3rem;
+    color: #21cbf3;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px #2563eb, 0 0 16px #21cbf3;
+    font-weight: 700;
+    opacity: 1;
+    min-height: 1.5em;
+
+    border-right: 2.5px solid #21cbf3;
+    white-space: nowrap;
+    overflow: hidden;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    animation: none;
+}
+.b-text.done {
+    border-right: none;
+}
+
+.cyber-bar {
+    width: 160px;
+    height: 14px;
+    background: #232c3b;
+    border-radius: 8px;
+    margin-top: 32px;
+    overflow: hidden;
+    box-shadow: 0 0 24px #21cbf3aa, 0 0 48px #2563eb55;
+    border: 2px solid #21cbf3;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.cyber-bar-inner {
+    height: 100%;
+    width: 0;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #21cbf3 0%, #2563eb 60%, #21cbf3 100%);
+    box-shadow: 0 0 24px #21cbf3, 0 0 48px #2563eb;
+    position: absolute;
+    left: 0; top: 0;
+    animation: cyberBarMove 2.7s cubic-bezier(.77,0,.18,1) forwards;
+    overflow: visible;
+}
+@keyframes cyberBarMove {
+    from { width: 0; }
+    to   { width: 100%; }
+}
+
+
+.cyber-bar-scan {
+    position: absolute;
+    top: 0; left: 0;
+    width: 32px; height: 100%;
+    background: linear-gradient(90deg, transparent 0%, #fff 50%, transparent 100%);
+    opacity: 0.7;
+    filter: blur(2px);
+    animation: cyberBarScan 1.2s cubic-bezier(.77,0,.18,1) infinite alternate;
+    pointer-events: none;
+}
+@keyframes cyberBarScan {
+    0%   { left: 0; opacity: 0.7; }
+    80%  { opacity: 1; }
+    100% { left: 128px; opacity: 0.2; }
+}
+
+
+.cyber-bar-particles {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+}
+.cyber-bar-particles::before, .cyber-bar-particles::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #21cbf3;
+    box-shadow: 0 0 12px #21cbf3, 0 0 24px #2563eb;
+    opacity: 0.7;
+    animation: cyberBarParticle1 2.7s linear infinite;
+}
+.cyber-bar-particles::after {
+    top: 7px;
+    background: #fff;
+    width: 5px; height: 5px;
+    box-shadow: 0 0 8px #21cbf3, 0 0 16px #2563eb;
+    opacity: 0.5;
+    animation: cyberBarParticle2 2.7s linear infinite;
+}
+@keyframes cyberBarParticle1 {
+    0%   { left: 0; opacity: 0.7; }
+    80%  { opacity: 1; }
+    100% { left: 140px; opacity: 0.1; }
+}
+@keyframes cyberBarParticle2 {
+    0%   { left: 20px; opacity: 0.5; }
+    80%  { opacity: 1; }
+    100% { left: 120px; opacity: 0.1; }
 } 
