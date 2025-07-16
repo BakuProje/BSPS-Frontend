@@ -1,5 +1,5 @@
-34.174.139.87 growtopia1.com
-34.174.139.87 growtopia2.com
-34.174.139.87 www.growtopia1.com
-34.174.139.87 www.growtopia2.com
-34.174.139.87 RvLnd.here
+103.59.160.189 growtopia1.com
+103.59.160.189 growtopia2.com
+103.59.160.189 www.growtopia1.com
+103.59.160.189 www.growtopia2.com
+103.59.160.189 RvLnd.here

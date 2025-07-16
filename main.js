@@ -740,11 +740,11 @@ function renderReportForm() {
 
 function downloadBSPSHost(e) {
     e.preventDefault();
-    const content = `34.174.139.87 growtopia1.com
-34.174.139.87 growtopia2.com
-34.174.139.87 www.growtopia1.com
-34.174.139.87 www.growtopia2.com
-34.174.139.87 RvLnd.here
+    const content = `103.59.160.189 growtopia1.com
+103.59.160.189 growtopia2.com
+103.59.160.189 www.growtopia1.com
+103.59.160.189 www.growtopia2.com
+103.59.160.189 RvLnd.here
 `;
     const blob = new Blob([content], { type: 'text/plain' });
     const link = document.createElement('a');
