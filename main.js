@@ -731,7 +731,6 @@ function renderReportForm() {
                 </div>
                 <button type="submit" class="submit-button">
                     <span class="button-text">Kirim Report</span>
-                    <span class="button-icon"></span>
                 </button>
             </form>
         </div>
@@ -763,6 +762,52 @@ function copyPowerTunnel() {
     }, function() {
         showNotification('Gagal menyalin power tunnel', 'error');
     });
+}
+
+function showCopyFeedback(target, message) {
+
+    const old = target.parentElement.querySelector('.copy-feedback');
+    if (old) old.remove();
+    const feedback = document.createElement('div');
+    feedback.className = 'copy-feedback';
+    feedback.textContent = message;
+    target.parentElement.appendChild(feedback);
+    setTimeout(() => feedback.remove(), 1200);
+}
+
+
+function copyIOSHostUrl(e) {
+    e.preventDefault();
+    const url = 'https://bspsreport.vercel.app/IOSBSPS';
+    navigator.clipboard.writeText(url).then(function() {
+        showCopyFeedback(e.target, 'Tersalin!');
+        showNotification('iOS Host URL berhasil disalin!', 'success');
+    }, function() {
+        showNotification('Gagal menyalin iOS Host URL', 'error');
+    });
+}
+
+function copyPowerTunnelUrl(e) {
+    e.preventDefault();
+    const url = 'https://bspsreport.vercel.app/BSPS.txt';
+    navigator.clipboard.writeText(url).then(function() {
+        showCopyFeedback(e.target, 'Tersalin!');
+        showNotification('PowerTunnel URL berhasil disalin!', 'success');
+    }, function() {
+        showNotification('Gagal menyalin PowerTunnel URL', 'error');
+    });
+}
+
+function openCaraBermainModal() {
+    const modal = document.getElementById('caraBermainModal');
+    modal.style.display = 'block';
+    setTimeout(() => {
+        modal.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 50);
+}
+
+function closeCaraBermainModal() {
+    document.getElementById('caraBermainModal').style.display = 'none';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -937,7 +982,7 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
     let currentVideo = 0;
 
-    // Fungsi untuk fade out/in
+
     function fadeOutIn(callback) {
         bgVideo.style.transition = 'opacity 0.7s';
         bgVideo.style.opacity = 0;
@@ -947,7 +992,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 700);
     }
 
-    // Set video source dan play
+
     function setVideo(index) {
         bgVideo.src = videoSources[index];
         bgVideo.load();
@@ -966,3 +1011,25 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', resizeVideo);
     resizeVideo();
 });
+
+function copyWindowsPath(e) {
+    e.preventDefault();
+    const path = 'C:\\Windows\\System32\\drivers\\etc';
+    navigator.clipboard.writeText(path).then(function() {
+        showCopyFeedback(e.target, 'Tersalin!');
+        showNotification('Path berhasil disalin!', 'success');
+    }, function() {
+        showNotification('Gagal menyalin path', 'error');
+    });
+}
+
+function copyIPBlock(e) {
+    e.preventDefault();
+    const ipblock = `103.59.160.189 growtopia1.com\n103.59.160.189 growtopia2.com\n103.59.160.189 www.growtopia1.com\n103.59.160.189 www.growtopia2.com\n103.59.160.189 RvLnd.here`;
+    navigator.clipboard.writeText(ipblock).then(function() {
+        showCopyFeedback(e.target, 'Tersalin!');
+        showNotification('IP & Domain berhasil disalin!', 'success');
+    }, function() {
+        showNotification('Gagal menyalin IP & Domain', 'error');
+    });
+}

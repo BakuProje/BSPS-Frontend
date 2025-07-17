@@ -1519,3 +1519,417 @@ body {
     80%  { opacity: 1; }
     100% { left: 120px; opacity: 0.1; }
 } 
+
+
+.cara-bermain-modal-content {
+    background: #181f2a;
+    padding: 44px 28px 36px 28px;
+    border-radius: 32px;
+    max-width: 600px;
+    width: 98vw;
+    margin: 40px auto;
+    box-shadow: 0 8px 40px rgba(33,203,243,0.13);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 0;
+    max-height: 92vh;
+    overflow-y: auto;
+}
+.cara-bermain-title {
+    color: #21cbf3;
+    font-size: 1.35rem;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 1px;
+}
+.cara-bermain-section {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+.panduan-block {
+    background: #232c3b;
+    border-radius: 24px;
+    box-shadow: 0 4px 24px 0 rgba(33,203,243,0.10);
+    border: 1.5px solid #21cbf3;
+    margin-bottom: 36px;
+    padding: 28px 24px 22px 24px;
+    transition: box-shadow 0.2s, border 0.2s;
+}
+.panduan-block:hover {
+    box-shadow: 0 8px 32px 0 rgba(33,203,243,0.18);
+    border-color: #2196F3;
+}
+.panduan-header {
+    font-size: 1.13rem;
+    font-weight: 700;
+    color: #21cbf3;
+    margin-bottom: 22px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.panduan-block.android .panduan-header, .panduan-block.android .step-icon {
+    color: #4ade80;
+}
+.panduan-icon {
+    font-size: 1.3rem;
+    margin-right: 4px;
+}
+.panduan-list {
+    margin-left: 0;
+    padding-left: 0;
+}
+.panduan-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+    font-size: 1.04rem;
+    line-height: 1.85;
+    color: #e0e6ed;
+    position: relative;
+}
+.step-badge {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(145deg, #2196F3, #21CBF3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  margin-right: 14px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.panduan-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.panduan-block {
+  position: relative;
+  padding-top: 18px;
+}
+.panduan-header {
+  margin-bottom: 18px;
+  text-align: center;
+  justify-content: center;
+}
+.panduan-list li {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+    font-size: 1.04rem;
+    line-height: 1.85;
+    color: #e0e6ed;
+    position: relative;
+}
+.step-badge {
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(145deg, #2196F3, #21CBF3);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-family: sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-size: 14px;
+  margin-right: 14px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.step-icon { display: none; }
+.panduan-btn {
+    background: linear-gradient(90deg, #2196F3 0%, #21CBF3 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 18px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0 4px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+    box-shadow: 0 2px 8px rgba(33,150,243,0.08);
+    display: inline-block;
+}
+.panduan-btn:hover {
+    background: linear-gradient(90deg, #21CBF3 0%, #2196F3 100%);
+    transform: scale(1.04);
+}
+.copyable-code {
+    background: #101e2a;
+    border-radius: 18px;
+    padding: 8px 18px;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1.08em;
+    cursor: pointer;
+    color: #21cbf3;
+    border: 2px solid #21cbf3;
+    margin: 0 2px;
+    word-break: break-all;
+    display: inline-block;
+    transition: background 0.18s, color 0.18s, transform 0.12s, box-shadow 0.18s, border 0.18s;
+    box-shadow: 0 2px 12px rgba(33,203,243,0.10);
+    vertical-align: middle;
+    position: relative;
+}
+.copyable-code:hover, .copyable-code:focus {
+    background: #21cbf3;
+    color: #181f2a;
+    border-color: #4ade80;
+    transform: scale(1.04);
+    box-shadow: 0 4px 18px #21cbf3aa;
+}
+.copyable-code:active {
+    transform: scale(0.97);
+}
+.copyable-ipblock {
+    display: block;
+    margin: 12px 0 12px 0;
+    white-space: pre-line;
+    text-align: left;
+    background: #101e2a;
+    border-radius: 18px;
+    padding: 12px 18px;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1.08em;
+    cursor: pointer;
+    color: #21cbf3;
+    border: 2px solid #21cbf3;
+    transition: background 0.18s, color 0.18s, transform 0.12s, box-shadow 0.18s, border 0.18s;
+    box-shadow: 0 2px 12px rgba(33,203,243,0.10);
+    position: relative;
+}
+.copyable-ipblock:hover, .copyable-ipblock:focus {
+    background: #21cbf3;
+    color: #181f2a;
+    border-color: #4ade80;
+    transform: scale(1.01);
+    box-shadow: 0 4px 18px #21cbf3aa;
+}
+.copyable-ipblock:active {
+    transform: scale(0.97);
+}
+.copy-feedback {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4ade80;
+    color: #181f2a;
+    font-size: 0.98em;
+    font-weight: 700;
+    padding: 5px 18px;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px #4ade80aa;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    animation: fadeCopy 1.2s ease;
+}
+@keyframes fadeCopy {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
+@media (max-width: 600px) {
+    .cara-bermain-modal-content {
+        padding: 14px 2vw 10px 2vw;
+        max-width: 99vw;
+        border-radius: 16px;
+    }
+    .cara-bermain-title {
+        font-size: 1.05rem;
+    }
+    .panduan-block {
+        padding: 8px 2px 6px 2px;
+        border-radius: 12px;
+    }
+    .panduan-header {
+        font-size: 1rem;
+    }
+    .panduan-list li {
+        font-size: 0.97rem;
+        margin-bottom: 13px;
+        gap: 8px;
+    }
+    .copyable-code, .copyable-ipblock {
+        font-size: 0.97em;
+        padding: 7px 10px;
+    }
+} 
+
+.cara-bermain-red-btn {
+    background: linear-gradient(90deg, #ff3b3b 0%, #ff6b6b 100%);
+    color: #fff;
+    font-weight: 700;
+    font-size: 1.15rem;
+    border: none;
+    border-radius: 14px;
+    padding: 18px 0;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 4px 18px 0 rgba(255,59,59,0.10);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    margin-top: 18px;
+    letter-spacing: 1px;
+    text-align: center;
+    display: block;
+}
+.cara-bermain-red-btn:hover {
+    background: linear-gradient(90deg, #ff6b6b 0%, #ff3b3b 100%);
+    transform: scale(1.03);
+    box-shadow: 0 8px 32px 0 rgba(255,59,59,0.18);
+}
+
+.panduan-svg {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-bottom: 2px;
+    display: inline-block;
+}
+
+.copyable-path, .copyable-ipblock {
+    background: rgba(33,150,243,0.13);
+    border-radius: 7px;
+    padding: 2px 8px;
+    font-family: 'Fira Mono', 'Consolas', monospace;
+    font-size: 1em;
+    cursor: pointer;
+    color: #21cbf3;
+    transition: background 0.18s, color 0.18s;
+    border: 1px dashed #21cbf3;
+    margin: 0 2px;
+    word-break: break-all;
+    display: inline-block;
+}
+.copyable-path:hover, .copyable-ipblock:hover {
+    background: #21cbf3;
+    color: #fff;
+    border-color: #2196F3;
+}
+.copyable-ipblock {
+    display: block;
+    margin: 8px 0 8px 0;
+    white-space: pre-line;
+    text-align: left;
+} 
+
+.modern-download-btn {
+  background: linear-gradient(90deg, #2196F3 0%, #21CBF3 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 16px;
+  padding: 12px 28px;
+  margin-bottom: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px 0 rgba(33,150,243,0.10);
+  transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.5px;
+  text-align: center;
+  display: inline-block;
+}
+.modern-download-btn:hover {
+  background: linear-gradient(90deg, #21CBF3 0%, #2196F3 100%);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(33,150,243,0.18);
+}
+.copyable-link {
+  color: #21cbf3;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.18s;
+  margin-left: 6px;
+}
+.copyable-link:hover {
+  color: #2196F3;
+  text-decoration: none;
+} 
+
+.kbd-win, .kbd-r {
+  background: #2196F3;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 1em;
+  margin: 0 2px;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  box-shadow: 0 1px 4px rgba(33,150,243,0.10);
+  display: inline-block;
+  vertical-align: middle;
+} 
+
+.modal .close {
+    background: transparent !important;
+    color: #fff !important;
+    font-size: 2.1rem;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+    transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+    box-shadow: none !important;
+    opacity: 1;
+    padding: 0;
+}
+.modal .close:hover {
+    background: rgba(255,255,255,0.12) !important;
+    color: #fff !important;
+}
+@media (max-width: 600px) {
+  .modal .close {
+    top: 8px;
+    right: 8px;
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+  }
+} 
+
+.submit-button, .modern-gradient-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.submit-button .button-text {
+    flex: unset;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    display: flex;
+} 

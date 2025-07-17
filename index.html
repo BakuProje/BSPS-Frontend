@@ -97,6 +97,18 @@
                         </span>
                         <span class="button-text">Power Tunnel</span>
                     </button>
+                    <a href="#" class="link-button animate__animated animate__fadeInUp" style="animation-delay: 0.15s;" onclick="copyIOSHostUrl(event)">
+                        <span class="button-icon" style="width:48px;height:48px;">
+                            <img src="./img/icon.png" alt="iOS Host" style="width:100%;height:100%;">
+                        </span>
+                        <span class="button-text">IOS Host</span>
+                    </a>
+                    <a href="#" class="link-button animate__animated animate__fadeInUp" style="animation-delay: 0.18s;" onclick="copyIPBlock(event)">
+                        <span class="button-icon" style="width:48px;height:48px;">
+                            <img src="./img/icon.png" alt="Windows Host" style="width:100%;height:100%;">
+                        </span>
+                        <span class="button-text">Windows Host</span>
+                    </a>
                     <a href="https://discord.com/invite/Z2kybabDg4" class="link-button animate__animated animate__fadeInUp" style="animation-delay: 0.3s;">
                         <span class="button-icon">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 127.14 96.36'%3E%3Cpath fill='%235865F2' d='M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z'/%3E%3C/svg%3E" alt="Discord Logo">
@@ -112,6 +124,9 @@
                     <button class="report-button animate__animated animate__fadeInUp" style="animation-delay: 0.5s;" onclick="openReportForm()">
                         <span class="button-icon">📢</span>
                         <span class="button-text">Report Masalah</span>
+                    </button>
+                    <button class="cara-bermain-red-btn animate__animated animate__fadeInUp" style="animation-delay: 0.6s;display:block;margin:24px auto 0 auto;max-width:300px;" onclick="openCaraBermainModal()">
+                        Cara Bermain
                     </button>
                 </div>
             </div>
@@ -178,7 +193,6 @@
 
                     <button type="submit" class="submit-button modern-gradient-btn">
                         <span class="button-text">KIRIM REPORT</span>
-                        <span class="button-icon">→</span>
                     </button>
                 </form>
             </div>
@@ -207,6 +221,50 @@
     <div id="qrFullscreenOverlay" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.85);z-index:9999;justify-content:center;align-items:center;">
         <img src="img/qr.jpg" alt="QR Code Fullscreen" style="max-width:90vw;max-height:90vh;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,0.25);">
         <span onclick="closeQrFullscreen()" style="position:fixed;top:32px;right:32px;font-size:2.5rem;color:#fff;cursor:pointer;z-index:10000;">&times;</span>
+    </div>
+
+
+    <div id="caraBermainModal" class="modal">
+        <div class="modal-content cara-bermain-modal-content animate__animated animate__fadeInDown">
+            <span class="close" onclick="closeCaraBermainModal()">&times;</span>
+            <h2 class="cara-bermain-title">Panduan Cara Bermain</h2>
+            <div class="cara-bermain-section">
+                <div class="panduan-block android">
+                    <div class="panduan-logo"><img src="img/android.svg" class="panduan-svg" alt="Android"/></div>
+                    <div class="panduan-header">Panduan Android</div>
+                    <ol class="panduan-list">
+                        <li><span class="step-badge">1</span><span><button class="modern-download-btn" onclick="window.open('https://sfile.mobi/1zuFlBKK6Qw','_blank')">Unduh PowerTunnel</button></span></li>
+                        <li><span class="step-badge">2</span><span><span class="copyable-link" onclick="copyPowerTunnelUrl(event)">KLIK INI LINK POWER TUNNEL</span></span></li>
+                        <li><span class="step-badge">3</span><span>Buka PowerTunnel, ketuk menu (☰), lalu pilih <b>Host Settings</b></span></li>
+                        <li><span class="step-badge">4</span><span>Tempel URL yang disalin, lalu atur host<br>update period menjadi <b>"on start"</b></span></li>
+                        <li><span class="step-badge">5</span><span>Buka Growtopia dan nikmati server pribadimu!</span></li>
+                    </ol>
+                </div>
+                <div class="panduan-block">
+                    <div class="panduan-logo"><img src="img/apple.svg" class="panduan-svg" alt="iOS"/></div>
+                    <div class="panduan-header">Panduan iOS (Surge 5)</div>
+                    <ol class="panduan-list">
+                        <li><span class="step-badge">1</span><span><button class="modern-download-btn" onclick="window.open('https://apps.apple.com/us/app/surge-5/id1442620678','_blank')">Unduh Surge 5</button> dari App Store</span></li>
+                        <li><span class="step-badge">2</span><span><span class="copyable-link" onclick="copyIOSHostUrl(event)">KLIK INI LINK IOS SURGE 5</span></span></li>
+                        <li><span class="step-badge">3</span><span>Masuk ke <b>IMPORT → Download Profile from URL</b> Masukkan</span></li>
+                        <li><span class="step-badge">4</span><span>Ketuk <b>OK</b> dan <b>Done</b>, lalu <b>SETUP</b></span></li>
+                        <li><span class="step-badge">5</span><span>Izinkan konfigurasi VPN dan buka Growtopia!</span></li>
+                    </ol>
+                </div>
+                <div class="panduan-block">
+                    <div class="panduan-logo"><img src="img/windows.svg" class="panduan-svg" alt="Windows"/></div>
+                    <div class="panduan-header">Panduan Windows</div>
+                    <ol class="panduan-list">
+                        <li><span class="step-badge">1</span><span>Tekan <span class="kbd-win">⊞ Win</span> + <span class="kbd-r">R</span> untuk membuka jendela Run</span></li>
+                        <li><span class="step-badge">2</span><span>Ketik <span class="copyable-code" onclick="copyWindowsPath(event)">C:\\Windows\\System32\\drivers\\etc</span> <br>lalu tekan Enter</span></li>
+                        <li><span class="step-badge">3</span><span>Cari dan klik kanan file <b>hosts</b></span></li>
+                        <li><span class="step-badge">4</span><span>Buka dengan <b>Notepad</b><br>(jalankan sebagai Administrator jika perlu)</span></li>
+                        <li><span class="step-badge">5</span><span>Tambahkan ke bagian bawah file hosts:<br><span class="copyable-ipblock" onclick="copyIPBlock(event)">103.59.160.189 growtopia1.com <br>103.59.160.189 growtopia2.com <br> 103.59.160.189 www.growtopia1.com <br>103.59.160.189 www.growtopia2.com <br> 103.59.160.189 RvLnd.here</span></span></li>
+                        <li><span class="step-badge">6</span><span>Simpan file lalu buka Growtopia untuk terhubung!</span></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="./main.js"></script>

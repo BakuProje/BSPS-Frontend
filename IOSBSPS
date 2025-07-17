@@ -1,0 +1,12 @@
+[General]
+bypass-system = true
+
+[Rule]
+FINAL,DIRECT
+
+[Host]
+growtopia1.com = 103.59.160.189
+growtopia2.com = 103.59.160.189
+www.growtopia1.com = 103.59.160.189
+www.growtopia2.com = 103.59.160.189
+RvLnd.here = 103.59.160.189
