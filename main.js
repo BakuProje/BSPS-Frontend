@@ -850,13 +850,7 @@ document.addEventListener('DOMContentLoaded', function() {
     bgVideo.muted = true;
 });
 
-function formatDateTime(date) {
-    return date.toLocaleDateString('id-ID', {
-        day: '2-digit',
-        month: '2-digit',
-        year: 'numeric'
-    });
-}
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const whatsappSupport = document.querySelector('.contact-support');
