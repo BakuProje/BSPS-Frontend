@@ -739,11 +739,11 @@ function renderReportForm() {
 
 function downloadBSPSHost(e) {
     e.preventDefault();
-    const content = `103.59.160.189 growtopia1.com
-103.59.160.189 growtopia2.com
-103.59.160.189 www.growtopia1.com
-103.59.160.189 www.growtopia2.com
-103.59.160.189 RvLnd.here
+    const content = `202.10.42.80 growtopia1.com
+202.10.42.80 growtopia2.com
+202.10.42.80 www.growtopia1.com
+202.10.42.80 www.growtopia2.com
+202.10.42.80 RvLnd.here
 `;
     const blob = new Blob([content], { type: 'text/plain' });
     const link = document.createElement('a');
@@ -1025,7 +1025,7 @@ function copyWindowsPath(e) {
 
 function copyIPBlock(e) {
     e.preventDefault();
-    const ipblock = `103.59.160.189 growtopia1.com\n103.59.160.189 growtopia2.com\n103.59.160.189 www.growtopia1.com\n103.59.160.189 www.growtopia2.com\n103.59.160.189 RvLnd.here`;
+    const ipblock = `202.10.42.80 growtopia1.com\n202.10.42.80 growtopia2.com\n202.10.42.80 www.growtopia1.com\n202.10.42.80 www.growtopia2.com\n202.10.42.80 RvLnd.here`;
     navigator.clipboard.writeText(ipblock).then(function() {
         showCopyFeedback(e.target, 'Tersalin!');
         showNotification('IP & Domain berhasil disalin!', 'success');
