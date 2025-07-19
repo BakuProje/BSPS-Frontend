@@ -844,8 +844,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     updateAudioUI();
 
-
-    audioBtn.addEventListener('click', toggleAudio);
+    if (audioBtn) {
+        audioBtn.addEventListener('click', toggleAudio);
+    }
 
     bgVideo.muted = true;
 });
