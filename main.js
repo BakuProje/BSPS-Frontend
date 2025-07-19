@@ -752,15 +752,15 @@ function downloadBSPSHost(e) {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-    showNotification('Virtual Host BSPS berhasil di-download', 'success');
+    showNotification('Virtual Host BSPS berhasil di download', 'success');
 }
 
 function copyPowerTunnel() {
     const text = 'https://bspsreport.vercel.app/BSPS.txt';
     navigator.clipboard.writeText(text).then(function() {
-        showNotification('Power tunnel di salin', 'success');
+        showNotification('Power tunnel Host di salin', 'success');
     }, function() {
-        showNotification('Gagal menyalin power tunnel', 'error');
+        showNotification('Gagal menyalin power tunnel Host', 'error');
     });
 }
 
@@ -781,9 +781,9 @@ function copyIOSHostUrl(e) {
     const url = 'https://bspsreport.vercel.app/IOSBSPS';
     navigator.clipboard.writeText(url).then(function() {
         showCopyFeedback(e.target, 'Tersalin!');
-        showNotification('iOS Host URL berhasil disalin!', 'success');
+        showNotification('IOS Host berhasil disalin!', 'success');
     }, function() {
-        showNotification('Gagal menyalin iOS Host URL', 'error');
+        showNotification('Gagal menyalin IOS Host ', 'error');
     });
 }
 
@@ -792,9 +792,9 @@ function copyPowerTunnelUrl(e) {
     const url = 'https://bspsreport.vercel.app/BSPS.txt';
     navigator.clipboard.writeText(url).then(function() {
         showCopyFeedback(e.target, 'Tersalin!');
-        showNotification('PowerTunnel URL berhasil disalin!', 'success');
+        showNotification('PowerTunnel Host berhasil disalin!', 'success');
     }, function() {
-        showNotification('Gagal menyalin PowerTunnel URL', 'error');
+        showNotification('Gagal menyalin PowerTunnel Host', 'error');
     });
 }
 
