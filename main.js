@@ -845,7 +845,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateAudioUI();
 
     if (audioBtn) {
-        audioBtn.addEventListener('click', toggleAudio);
+    audioBtn.addEventListener('click', toggleAudio);
     }
 
     bgVideo.muted = true;
