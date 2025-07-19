@@ -819,6 +819,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let isMuted = true; 
 
     function updateAudioUI() {
+        if (!audioIcon || !audioLabel || !audioBtn) return;
         if (isMuted) {
             audioIcon.textContent = '🔇';
             audioLabel.textContent = 'Music: OFF';
